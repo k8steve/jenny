@@ -1,0 +1,440 @@
+<html>
+
+<head>
+
+<title>{Title}</title>
+
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="appdivcation/rss+xml" href="{RSS}">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{block:Description}
+<meta name="description" content="{MetaDescription}" />
+{/block:Description}
+
+<!-- META -->
+<meta name="Description" content="{Description}"/>
+<meta name="news_keywords" content="{Description}" />
+<link rel="image_src" 
+      type="image/jpeg" 
+      href="{Favicon}" />
+
+<meta property="og:title" content="{Title}" />
+<meta property="og:description" content="{Description}"/>
+<meta property="og:url" content="http://jennycorrea.com" />
+<meta property="og:image:url" content="{Favicon}" />
+<meta property="og:image:url" content="http://static.tumblr.com/6ncwged/7rsnbv3lv/iconbigger.png" />
+<meta property="og:image:url" content="{image:IndexImage}" />
+
+<meta name="image:Index Image" content=""/>
+<meta name="select:Index Video" content="youtube" title="You Tube"/>
+<meta name="select:Index Video" content="vimeo" title="Vimeo"/>
+<meta name="select:Index Video" content="style" title="Style.com"/>
+<meta name="if:Autoplay Index Video" content="0"/>
+<meta name="text:Index Video ID" content=""/>
+<meta name="text:Email" content="jennykristincorrea@gmail.com"/>
+
+<!-- JS -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+
+<script src="http://static.tumblr.com/6ncwged/BVRnbph9n/jquery.fitvids.js"></script>
+
+<script type="text/javascript" src="http://codysherman.tumblr.com/tools/infinite-scrolling/code"></script>
+
+<!-- FONTS -->
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+ 
+<!-- CSS -->
+<style>
+
+#tumblr_controls, #ga_target, #tumblr_teaser_follow{display:none!important}
+
+body, html {margin:0;}
+
+.tumblrAutoPager_page_info {display:inline;}
+
+body {
+background-color:white;
+font-family:'Roboto Condensed';
+font-size:11px;
+color:black;
+}
+
+a {text-decoration:none;color:black;}
+
+#title {
+display: block;
+position: absolute;
+top: 50px;
+left: 50px;
+text-transform: uppercase;
+font-size: 30px;
+letter-spacing: 3px;
+color: black;
+}
+
+#subtitle {
+display:block;
+font-size:15px;
+text-transform:none;
+}
+
+#pages {
+display: block;
+position: absolute;
+top: 150px;
+left: 50px;
+font-size: 13px;
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.email {
+margin:30px 0!important;
+}
+
+.email:hover:after {
+content: attr(thing);
+position: relative;
+color: black;
+top: 17px;
+left: -86px;
+font-size: 9px;
+text-transform: none;
+letter-spacing: 0.5px;
+}
+
+#pages a {
+display:block;
+margin:0 0 15px;    
+}
+
+#index img {
+width:100%;
+margin:0 0 15px;
+}
+
+#index.vimeo #youtube, #index.vimeo #style, #index.youtube #vimeo, #index.youtube #style, #index.style #vimeo, #index.style #youtube {display:none;}
+
+#index.style iframe.style {width:712px;height:400px!important;}
+
+#index, #posts {
+position: absolute;
+left: 220px;
+top: 150px;
+
+{block:IndexPage}
+width:75%;
+{/block:IndexPage}
+
+{block:PermalinkPage}
+width: 59%;
+max-width: 700px;
+min-width:205px;
+{/block:PermalinkPage}
+}
+
+#posts {display:none;margin-bottom:200px;}
+
+.post {
+display: inline-block;
+margin: 0 8px 27px;
+font-family: helvetica;
+font-weight: 100;
+letter-spacing: 0.75px;
+vertical-align:text-top;
+
+{block:IndexPage}
+width: 250px;
+text-align: center;
+font-size: 9px;
+{/block:IndexPage}
+
+{block:PermalinkPage}
+width:100%;
+line-height:15px;
+{/block:PermalinkPage}
+}
+
+.post a img {width:100%;border:1px solid;}
+
+.ytimg {
+overflow: hidden;
+display: inline-block;
+height: 141px;
+border: 1px solid;    
+}
+.ytimg img {
+border: none!important;
+margin: -12%;
+width: 106%!important; 
+}
+
+.post iframe {width:100%;border:1px solid;}
+
+.post.text p:first-of-type {margin-top:0px!important;}
+
+blockquote {
+margin:15px 0 0;
+{block:IndexPage}
+display:none;
+{/block:IndexPage}
+}
+
+#sitecredit {
+opacity: 0.1;
+position: fixed;
+bottom: 20px;
+left: 50px;
+width: 15px;
+height: 13px;
+background-size: 200%;
+background-position: right 0px;
+background-image:url('http://static.tumblr.com/i4eyetj/ML4mxk7n1/sitecredit.png');
+transition-duration:0.5s;
+-webkit-transition-duration:0.5s;
+-moz-transition-duration:0.5s;
+-o-transition-duration:0.5s;
+}
+#sitecredit:hover {opacity:0.7}
+
+/* MOBILE */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) { 
+  
+html, body {overflow:hidden;height:100%;}
+
+html.mobile, body.mobile {
+height:auto;
+padding-bottom:100px;
+}
+
+body {font-size:30px;}
+    
+#title, #pages, #index, #posts {position:relative;width:100%;left:0;max-width:none;}
+#title, #pages {display:block;text-align:center;}
+
+#title {
+font-size:70px;
+padding-bottom:50px;
+border-bottom:1px solid;
+}
+
+#subtitle {font-size:40px;}
+
+#pages {top:100px;}
+
+#pages a {
+display:inline-block;
+margin:0 20px 10px 0;
+font-size:50px;
+border-bottom:1px solid;
+padding-bottom:5px;
+}
+
+#pages a:last-of-type {
+border-bottom:none;
+font-style:italic;
+}
+
+
+#index img {
+width:175%;
+margin: 0 -37.5%;
+}
+
+.post {
+display:block;
+width:90%;
+margin:120px auto;
+font-size:30px;
+line-height:40px;
+border-bottom:1px solid;
+}
+
+.post a {width:100%;height:500px;}
+
+.email:hover:after {display:none;}
+
+iframe {margin:0 auto;display:block;}
+
+p.notfound {
+height:50px;
+text-align:center;
+}
+
+#sitecredit {
+opacity:0.03;
+left: 50%;
+position:relative;
+top:150px;
+margin-left:-7px;
+margin-bottom:50px;
+width: 50px;
+height: 47px;
+}
+
+
+}
+</style> 
+    
+</head>
+    
+
+<!-- BODY -->
+<body>
+
+<div id="title"><a href="http://jennycorrea.com">{Title}
+<span id="subtitle">PROP STYLIST</span>
+</a></div>
+
+<div id="pages">
+{block:HasPages}
+{block:Pages}
+<a href="{URL}">{Label}</a>
+{/block:Pages}
+{/block:HasPages}
+
+<!--a href="http://jennycorrea.com/bio" class="bio">BIO</a-->
+<a href="mailto:{text:email}" target="blank" class="email" thing="{text:email}">CONTACT</a>    
+</div>
+
+<!-- INDEX IMAGE -->
+<div id="index" class="{select:Index Video}">
+{block:IfNotIndexVideoID}
+<img src="{image:IndexImage}">
+{/block:IfNotIndexVideoID}
+
+{block:IfIndexVideoID}
+<div id="vimeo">
+<iframe class="vimeo" src="//player.vimeo.com/video/{text:Index Video ID}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff{block:ifAutoplayIndexVideo}&amp;autoplay=1{/block:ifAutoplayIndexVideo}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen width="500" height="280"></iframe>
+</div>
+
+<div id="youtube">
+<iframe class="youtube" src="//www.youtube-nocookie.com/embed/{text:Index Video ID}?rel=0&showinfo=0&controls=0&modestbranding=1{block:ifAutoplayIndexVideo}&autoplay=1{/block:ifAutoplayIndexVideo}" frameborder="0" allowfullscreen width="500" height="280"></iframe>
+</div>
+
+<div id="style">
+<iframe  class="style" width="712" height="400" src="http://player.cnevids.com/embed/{text:Index Video ID}" frameBorder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen allowtransparency="true"></iframe>
+</div>
+{/block:IfIndexVideoID}
+
+</div>
+
+<!-- POSTS -->
+<div id="posts">
+{block:Posts}
+
+    <!-- text -->
+    {block:Text}
+    <div class="post text">
+    {block:Title}
+    <a href="{Permalink}">{Title}</a>
+    {/block:Title}{Body}
+    </div>
+    {/block:Text}
+    
+    
+    <!-- photo -->
+    {block:Photo}
+    <div class="post photo">
+    <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+    
+    {block:Caption}
+    <div class="caption">{Caption}</div>
+    {/block:Caption}
+    </div>
+    {/block:Photo}
+    
+    
+    <!-- video -->
+    {block:Video}
+    <div class="post video">
+    {block:IndexPage}
+    {block:VideoThumbnail}
+    <a href="{Permalink}"><img src="{VideoThumbnailURL}" alt="{PhotoAlt}"></a>
+    {/block:VideoThumbnail}
+    {/block:IndexPage}
+    
+    {block:PermalinkPage}
+    {Video-700}
+    {/block:PermalinkPage}
+    
+    {block:Caption}
+    <div class="caption">{Caption}</div>
+    {/block:Caption}
+    </div>
+    {/block:Video}
+
+
+{/block:Posts}
+</div>
+
+<!-- PAGINATION FOR ALTERNATE INFINITE SCROLL -->
+<div class="pagination">
+{block:Pagination}
+{block:NextPage}
+<a href="{NextPage}" class="nextpage"></a>
+{/block:NextPage}
+{/block:Pagination}
+</div>  
+
+<!-- BACKGROUND -->
+
+<a href="http://dinakelbermanwebdesign.com" target="blank">
+<!--
+___                                                                
+/ (_)              o    |                     |    | o              
+|     __  _  _    ,    __|  _   ,_      __,  __|  __|     _  _   __, 
+|    /  \/ |/ |  / \| /  | |/  /  |    /  | /  | /  | |  / |/ | /  | 
+\___|__/  |  |_/ \/|_|_/|_/__/   |_/  \_/|_|_/|_|_/|_/_/  |  |_|_/|/
+                                                               /| 
+                     |                     _                   \| 
+                     | o                  | |             
+__,     __   ,_   _  __|  _|_    ,_   __,_|_| |    _   ,_   
+/  |    /    /  | |/ /  | | |    /  | /  | | |/ \  |/  /  |  
+\_/|_/  \___/   |_/__|_/|_/_/_/     |_|_/|_/_/   |_/__/   |_/
+
+ _                                                              
+| |                                              o              
+_|_| |    __,   _  _      ,_   _   _  _  _   __         _  _   __, 
+| |/ \  /  |  / |/ |    /  | |/  / |/ |/ | /  \|  ||  / |/ | /  | 
+|_/   |_|_/|_/  |  |_/     |_/__/  |  |  |_|__/ \/ |_/  |  |_|_/|/
+                                                             /| 
+                                                             \| 
+__  _  _   _   
+/  \/ |/ | |/   
+\__/  |  |_/__/ 
+
+-->
+<div id="sitecredit"></div></a>
+
+<script>
+$(function() {
+$(".post, #vimeo, #youtube, #style").fitVids();
+    
+if (window.location.href.indexOf("tagged") > -1) { 
+    $('#posts').show();$('#index').hide();
+    $('body, html').addClass('mobile');
+}  
+
+if (window.location.href.indexOf("post") > -1) { 
+    $('#posts').show();$('#index').hide();
+    $('body, html').addClass('mobile');
+} 
+
+if (window.location.href.indexOf("bio") > -1) { 
+    $('#posts').show();$('#index').hide();
+    $('body, html').addClass('mobile');
+} 
+
+$("img[src*='ytimg']").each(function () {
+    $(this).parent().addClass('ytimg');
+});
+
+$(".post:contains(The URL you requested could not be found.)").replaceWith("<p class='notfound'><em>URL not found</em></p>");
+});
+</script>
+</body>
+</html>
